@@ -31,10 +31,6 @@
               >{{ page }}</a
             >
           </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li> -->
         </ul>
         <form class="d-flex">
           <input

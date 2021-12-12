@@ -78,7 +78,6 @@ export default {
       cast: [],
       genres: [],
       movieSearchList: [],
-      // searchText: "",
       progressBarPercentage: 0,
       selectedMovie: {},
       uploadProcessStep: 1,
@@ -86,7 +85,6 @@ export default {
   },
   methods: {
     onFileUpload(event) {
-      //   console.log(event);
       this.file = event.target.files[0];
     },
     onNextStepPressed() {
@@ -120,14 +118,12 @@ export default {
     },
     onUploadProgress(progressEvent) {
       if (progressEvent.lengthComputable) {
-        // console.log(progressEvent.loaded + " " + progressEvent.total);
         console.log(
           Math.round((progressEvent.loaded / progressEvent.total) * 100)
         );
         this.progressBarPercentage = Math.round(
           (progressEvent.loaded / progressEvent.total) * 100
         );
-        // this.updateProgressBarValue(progressEvent);
       }
     },
     onSearchMovie(searchedText) {

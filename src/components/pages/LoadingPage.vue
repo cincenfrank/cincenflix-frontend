@@ -18,7 +18,6 @@ export default {};
   margin: 50px 0;
   width: 500px;
   animation: loading-image-animation 2.5s infinite;
-  //   display: block;
 }
 .loading-text {
   animation: loading-text-animation 2.5s infinite;

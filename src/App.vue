@@ -16,7 +16,6 @@
           v-else-if="activePage === 'home'"
           @onMediaCardSelected="onMediaCardSelected"
         ></HomePage>
-        <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
         <UploadPage v-else-if="activePage === 'upload'"></UploadPage>
       </div>
     </div>
@@ -25,7 +24,6 @@
 
 <script>
 import HomePage from "./components/pages/HomePage.vue";
-// import HomePage from "./components/HomePage.vue";
 import NavBar from "./components/NavBar.vue";
 import UploadPage from "./components/pages/UploadPage.vue";
 import Video from "./components/widgets/Video.vue";
@@ -62,17 +60,13 @@ export default {
 </script>
 
 <style lang="scss">
-// html {
-//   background-color: black;
-// }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // margin-top: 60px;
-  // background-color: black;
+
   color: white;
   height: 100vh;
   overflow: auto;
