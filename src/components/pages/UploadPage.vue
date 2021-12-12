@@ -88,7 +88,7 @@ export default {
   components: { MediaCard, ProgressBar, StepsVisualizer },
   data() {
     return {
-      apiKey: "INSERT-API-KEY",
+      apiKey: process.env.VUE_APP_MOVIEDB_API_KEY,
       file: "",
       movieName: "",
       year: "",
