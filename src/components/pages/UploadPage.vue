@@ -32,25 +32,7 @@
       <label for="movieSearch" class="form-label"
         >Search for the movie data</label
       >
-      <div class="d-flex w-50 text m-auto mb-5 w-100">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          id="movieSearch"
-          v-model="searchText"
-          @keypress.enter="onSearchMovie"
-        />
-        <button
-          class="btn btn-outline-danger"
-          :class="searchText.trim() === '' ? 'disabled' : ''"
-          @click="onSearchMovie"
-        >
-          Search
-        </button>
-      </div>
-
+      <SearchMovieBar @onSearchMovie="onSearchMovie"></SearchMovieBar>
       <div class="shell row row-cols-5 gy-4">
         <div
           class="col"
@@ -84,8 +66,9 @@ import axios from "axios";
 import MediaCard from "../widgets/MediaCard.vue";
 import ProgressBar from "../widgets/ProgressBar.vue";
 import StepsVisualizer from "../widgets/StepsVisualizer.vue";
+import SearchMovieBar from "../widgets/SearchMovieBar.vue";
 export default {
-  components: { MediaCard, ProgressBar, StepsVisualizer },
+  components: { MediaCard, ProgressBar, StepsVisualizer, SearchMovieBar },
   data() {
     return {
       apiKey: process.env.VUE_APP_MOVIEDB_API_KEY,
@@ -95,7 +78,7 @@ export default {
       cast: [],
       genres: [],
       movieSearchList: [],
-      searchText: "",
+      // searchText: "",
       progressBarPercentage: 0,
       selectedMovie: {},
       uploadProcessStep: 1,
@@ -147,12 +130,12 @@ export default {
         // this.updateProgressBarValue(progressEvent);
       }
     },
-    onSearchMovie() {
-      if (this.searchText.trim() !== "") {
+    onSearchMovie(searchedText) {
+      if (searchedText.trim() !== "") {
         // this.pendingCalls++;
         axios
           .get("https://api.themoviedb.org/3/search/movie", {
-            params: { api_key: this.apiKey, query: this.searchText },
+            params: { api_key: this.apiKey, query: searchedText },
           })
           .then((resp) => {
             console.log(resp.data);
